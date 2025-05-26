@@ -9,7 +9,7 @@ function App() {
 	const [editingRace, setEditingRace] = useState(null);
 	const [loading, setLoading] = useState(false);
 	// @ts-ignore
-	const apiUrl = import.meta.env.VITE_API_URL;
+	const apiUrl = import.meta.env.API_URL;
 
 	useEffect(() => {
 		setLoading(true);
