@@ -90,3 +90,29 @@ li {
 .race-table li:not(.header):nth-child(even) span {
 	background-color: #22595b;
 }
+
+button {
+	padding: 0.6em 1.2em;
+	margin: 0.5em;
+	border: none;
+	border-radius: 6px;
+	background-color: #22595b;
+	color: white;
+	font-size: 1em;
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+	background-color: #2f7b7f;
+	transform: scale(1.03);
+}
+
+button:active {
+	transform: scale(0.97);
+}
+
+button:disabled {
+	background-color: #555;
+	cursor: not-allowed;
+}

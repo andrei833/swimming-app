@@ -8,17 +8,19 @@ function App() {
 	const [refresh, setRefresh] = useState(false);
 	const [editingRace, setEditingRace] = useState(null);
 	const [loading, setLoading] = useState(false);
+	// @ts-ignore
+	const apiUrl = import.meta.env.VITE_API_URL;
 
 	useEffect(() => {
 		setLoading(true);
-		fetch("http://192.168.1.132:8080/races")
+		fetch(apiUrl + "/races")
 			.then((response) => response.json())
 			.then((data) => setRaces(data))
 			.finally(() => setLoading(false));
-	}, [refresh]);
+	}, [apiUrl, refresh]);
 
 	const handleAddRace = (race) => {
-		fetch("http://192.168.1.132:8080/races", {
+		fetch(apiUrl + "/races", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -28,7 +30,7 @@ function App() {
 	};
 
 	const handleDelete = (id) => {
-		fetch(`http://192.168.1.132:8080/races/${id}`, {
+		fetch(apiUrl + `/races/${id}`, {
 			method: "DELETE",
 			headers: {
 				"Content-Type": "application/json",
@@ -44,7 +46,7 @@ function App() {
 	};
 
 	const handleUpdateRace = (updatedRace) => {
-		fetch(`http://192.168.1.132:8080/races/${updatedRace.id}`, {
+		fetch(apiUrl + `/races/${updatedRace.id}`, {
 			method: "PUT",
 			headers: {
 				"Content-Type": "application/json",
